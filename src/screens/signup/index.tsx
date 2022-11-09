@@ -1,10 +1,26 @@
 import { AltNavBar } from '../../components/altNavBar';
 import styles from './styles.module.css';
+import { FormEvent, useState } from 'react';
+import { IGuestData, IForm } from '../../interfaces';
 
-export function SignUp () {
+const initialForm : IGuestData = {
+  email: '',
+  password: '',
+}
 
-  const handleSubmit = (e: any) => {
+export function SignUp ({postGuest}: IForm) {
+
+  const [ formData, setFormData ] = useState(initialForm);
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    postGuest(formData);
+    setFormData(initialForm);
+  }
+
+  const handleChange = ( e: any) => {
+    const { value, name } = e.target;
+    setFormData(prevState => ({...prevState, [name]: value}));
   }
 
   return (
@@ -12,8 +28,8 @@ export function SignUp () {
       <AltNavBar/>
       <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <input placeholder ='E-mail'/>
-        <input placeholder ='Password'/>
+        <input placeholder ='E-mail' name='email' value={formData.email} onChange={handleChange}/>
+        <input placeholder ='Password' name='password' value={formData.password} onChange={handleChange}/>
         <button className={styles.signUpButton} type='submit'>Sign up</button>
       </form>
     </div>

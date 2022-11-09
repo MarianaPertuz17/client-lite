@@ -10,12 +10,17 @@ import { SignUp } from './screens/signup';
 
 
 function App() {
+
+  const postGuest = () => {
+
+  }
+
   return (
     <Router>
       <Routes>
         <Route path={routes.HOME} element={<Home/>}/>
         <Route path={routes.LOGIN} element={<Login/>}/>
-        <Route path={routes.SIGNUP} element={<SignUp/>}/>
+        <Route path={routes.SIGNUP} element={<SignUp postGuest={postGuest}/>}/>
       </Routes>
     </Router>
   );
