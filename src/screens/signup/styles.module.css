@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: #0d1117;
+  height: 100vh;
+  width: 100vw;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15vh;
+  background-color: #1c2026;
+  border: #32363c 1px solid;
+  border-radius: 10px;
+  min-width: none;
+  width: 20vw;
+  height: 40%;
+  padding: 3em;
+}
+
+.signUpButton {
+  background-color: yellow;
+  border: none;
+  border-radius: 5px;
+  height: 5vh;
+  color: #1c2026;
+  min-width: 20vw;
+  cursor: pointer;
+  font-family: Epilogue;
+  font-size: var(--fs-50);
+  margin-top: 3vh;
+}
+
+.signUpButton:hover {
+  background-color: rgba(255, 255, 0, 0.82);
+}

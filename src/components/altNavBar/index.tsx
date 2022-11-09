@@ -3,14 +3,13 @@ import logo from '../../assets/images/logo_lite.png';
 import { Link } from "react-router-dom";
 import { routes } from '../../routes';
 
-export function NavBar () {
+export function AltNavBar () {
   return (
     <div className={styles.container}>
       <div className={styles.firstContainer}>
         <Link to={routes.HOME}>
           <img src={logo} alt='logo' className={styles.logo}/>
         </Link>
-        <span>Discover companies</span>
       </div>
       <div className={styles.buttonContainer}>
         <Link to={routes.LOGIN}>
