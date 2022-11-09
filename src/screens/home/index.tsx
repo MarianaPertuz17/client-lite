@@ -1,7 +1,14 @@
+import { useEffect } from 'react';
 import { NavBar } from '../../components/navBar';
 import styles from './styles.module.css';
 
 export function Home () {
+
+  useEffect(() => {
+    const loggedUserJSON = localStorage.getItem('bearer-token');
+    
+  }, []);
+
   return (
     <>
       <NavBar/>

@@ -1,7 +1,7 @@
 import { AltNavBar } from '../../components/altNavBar';
 import styles from './styles.module.css';
 import { FormEvent, useState } from 'react';
-import { IGuestData, ISignUpForm } from '../../interfaces';
+import { IGuestData } from '../../interfaces';
 import { guestService } from '../../services/guestService';
 
 const initialForm : IGuestData = {

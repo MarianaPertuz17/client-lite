@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  background-color: #0d1117;
+  height: 100vh;
+  padding: 1em 5em;
+}
+

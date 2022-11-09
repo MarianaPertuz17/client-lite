@@ -21,10 +21,15 @@
   display: flex;
   width: 12vw;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   max-height:8vh;
+}
+
+.profile {
+  max-height:6vh;
 }
 
 .button {
@@ -33,6 +38,7 @@
   padding: 0.5em 1em;
   cursor: pointer;
   font-family: Epilogue;
+  height: 5vh;
 }
 
 .login {
@@ -53,4 +59,14 @@
 .signUp:hover {
   background-color: transparent;
   color: yellow;
+}
+
+.span {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.span:hover {
+  color: rgb(206, 201, 201);
 }

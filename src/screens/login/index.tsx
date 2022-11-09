@@ -5,6 +5,7 @@ import { ILoginUserData } from '../../interfaces';
 import { RadioButtons } from '../../components/radioGroup';
 import { guestService } from '../../services/guestService';
 import { adminService } from '../../services/adminService';
+import { useNavigate } from "react-router-dom";
 
 const initialLoginFormData : ILoginUserData = {
   email: '',
@@ -15,6 +16,7 @@ export function Login () {
 
   const [ formData, setFormData ] = useState<ILoginUserData>(initialLoginFormData);
   const [ selectedUser, setSelectedUser ] = useState('guest');
+  const navigate = useNavigate();
 
   const postLoginUser = async (userData: ILoginUserData, user: string) => {
     let response = '';
@@ -25,14 +27,15 @@ export function Login () {
       response = res;
       err = error;
     } else {
-      console.log('el usuario es admin', userData)
       const {res, error} = await adminService.postLoginAdmin(userData);
       response = res;
       err = error;
     }
     
-    if (!err) alert(response);
-    else alert(response);
+    if (!err) {
+      localStorage.setItem('token', JSON.stringify(response))
+      navigate('/');
+    } else alert(response);
   }
 
   const handleSubmit = (e: FormEvent) => {
