@@ -27,19 +27,32 @@ export function Login () {
         <input placeholder ='Password'/>
         <RadioGroup
           aria-labelledby="demo-controlled-radio-buttons-group"
-          name="controlled-radio-buttons-group"
-          sx={{
-            color: yellow[400],
-            '&.Mui-checked': {
-              color: yellow[400],
-            },
-          }}
-          
+          name="controlled-radio-buttons-group"          
           value={value}
           onChange={handleChange}
         >
-          <FormControlLabel value="guest" control={<Radio />} label="Log in as guest" className={styles.span} />
-          <FormControlLabel value="admin" control={<Radio />} label="Log in as admin" />
+          <FormControlLabel 
+            value="guest" 
+            control={<Radio sx={{
+              color: yellow[400],
+              '&.Mui-checked': {
+                color: yellow[400],
+              },
+            }}/>} 
+            label="Log in as guest" 
+            className={styles.span} 
+          />
+          <FormControlLabel 
+            value="admin" 
+            control={<Radio sx={{
+              color: yellow[400],
+              '&.Mui-checked': {
+                color: yellow[400],
+              },
+            }}/>} 
+            label="Log in as admin" 
+            className={styles.span} 
+          />
         </RadioGroup>
         <button className={styles.loginButton} type='submit'>Log in</button>
       </form>
