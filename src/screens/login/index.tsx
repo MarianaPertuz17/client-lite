@@ -25,6 +25,7 @@ export function Login () {
       response = res;
       err = error;
     } else {
+      console.log('el usuario es admin', userData)
       const {res, error} = await adminService.postLoginAdmin(userData);
       response = res;
       err = error;
@@ -41,8 +42,8 @@ export function Login () {
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target;
-    if (value === 'guest' || value === 'admin') setSelectedUser((e.target as HTMLInputElement).value);
+    const { value, name } = e.target as HTMLInputElement;
+    if (value === 'guest' || value === 'admin') setSelectedUser(value);
     else setFormData((prevState: ILoginUserData) => ({...prevState, [name]: value}));
   };
 
@@ -53,8 +54,8 @@ export function Login () {
       <div className={styles.container}>
         <div className={styles.formContainer}>
           <form className={styles.form} onSubmit={handleSubmit}>
-            <input placeholder ='E-mail'/>
-            <input placeholder ='Password'/>
+            <input placeholder ='E-mail' name='email' value={formData.email} onChange={handleChange}/>
+            <input placeholder ='Password' name='password' type='password' value={formData.password} onChange={handleChange}/>
             <RadioButtons selectedUser={selectedUser} handleChange={handleChange}/>
             <button className={styles.button} type='submit'>Log in</button>
           </form>
