@@ -6,7 +6,10 @@ export function Home () {
     <>
       <NavBar/>
       <div className={styles.container}>
-        <span>Home</span>
+        <div className={styles.welcomeTitle}>
+          <span className={styles.firstTitle}>Get ready to discover</span>
+          <span className={styles.secondTitle}>new companies</span>
+        </div>
       </div>
     
     </>

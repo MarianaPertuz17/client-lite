@@ -7,8 +7,8 @@ export function Login () {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input placeholder ='E-mail'/>
         <input placeholder ='Password'/>
         <button type='submit'>Login</button>

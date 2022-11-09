@@ -1,4 +1,43 @@
 .container {
   background-color: #0d1117;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.welcomeTitle {
+  font-family: Epilogue, 'sans serif';
+  font-size: var(--fs-400);
+  font-weight: bold;
+  max-width: 65vw;
+  text-align: center;
+  margin: 2em 0;
+}
+
+.firstTitle{
+  color: white;
+  display: block;
+}
+
+.secondTitle {
+  color: transparent;
+  background-image: linear-gradient(to left, green, blue, yellow, pink);
+  -webkit-background-clip: text;
+  animation: animate 5s linear infinite;
+  -webkit-background-size: 500;
+
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 100%;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 100%;
+  }
 }

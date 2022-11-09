@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html, body {
+  --fs-400: 5rem;
+  --fs-50: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}

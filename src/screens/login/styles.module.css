@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: #0d1117;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: #1c2026;
+  border: #32363c 1px solid;
+  border-radius: 10px;
+  max-width: 50vw;
+  height: 40%;
+  padding: 3em;
+}
