@@ -2,6 +2,7 @@ import { AltNavBar } from '../../components/altNavBar';
 import styles from './styles.module.css';
 import { FormEvent, useState } from 'react';
 import { IGuestData, ISignUpForm } from '../../interfaces';
+import { guestService } from '../../services/guestService';
 
 const initialForm : IGuestData = {
   email: '',
@@ -9,12 +10,18 @@ const initialForm : IGuestData = {
   passwordRepeat: ''
 }
 
-export function SignUp ({postGuest}: ISignUpForm) {
+export function SignUp () {
 
   const [ formData, setFormData ] = useState(initialForm);
 
   const arePasswordsEqual = formData.password === formData.passwordRepeat;
   const matchMessage = arePasswordsEqual ? '' : 'Password do not match';
+
+  const postGuest = async (guest: IGuestData) => {
+    const {res, error} = await guestService.postGuest(guest);
+    if (!error) alert(res);
+    else alert(res);
+  }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

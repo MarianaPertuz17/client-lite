@@ -7,30 +7,15 @@ import {
 } from 'react-router-dom';
 import { Login } from './screens/login';
 import { SignUp } from './screens/signup';
-import { IGuestData, ILoginUserData } from './interfaces';
-import { guestService } from './services/guestService';
 
 
 function App() {
-
-  const postGuest = async (guest: IGuestData) => {
-    // const {res, error} = await guestService.postGuest(guest);
-    // if (!error) alert(res);
-    // else alert(res);
-  }
-
-  const postLoginUser = async (userData: ILoginUserData, user: string) => {
-    // const {res, error} = await guestService.postGuest(guest);
-    // if (!error) alert(res);
-    // else alert(res);
-  }
-
   return (
     <Router>
       <Routes>
         <Route path={routes.HOME} element={<Home/>}/>
-        <Route path={routes.LOGIN} element={<Login postLoginUser={postLoginUser}/>}/>
-        <Route path={routes.SIGNUP} element={<SignUp postGuest={postGuest}/>}/>
+        <Route path={routes.LOGIN} element={<Login/>}/>
+        <Route path={routes.SIGNUP} element={<SignUp/>}/>
       </Routes>
     </Router>
   );

@@ -1,16 +1,29 @@
-import { IGuestData, IGuestService } from './../interfaces/index';
-export const guestService : IGuestService = {};
+import { IGuestData, IGuestService, ILoginUserData } from './../interfaces/index';
 
-const url = 'http://localhost:5002';
+const url = 'https://afternoon-fortress-29327.herokuapp.com';
 
-guestService.postGuest = (guest: IGuestData) => {
-  return fetch(`${url}/api/guest/register`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(guest)})
-    .then(res => res.json())
-    .then(data => data)
-    .catch(e => e);
-}
+export const guestService : IGuestService = {
+  postGuest: (guest: IGuestData): Promise<any> => {
+    return fetch(`${url}/api/guest/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(guest)})
+      .then(res => res.json())
+      .then(data => data)
+      .catch(e => e);
+  },
+
+  postLoginGuest: (guest: ILoginUserData): Promise<any> => {
+    return fetch(`${url}/api/guest/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(guest)})
+      .then(res => res.json())
+      .then(data => data)
+      .catch(e => e);
+  }
+};

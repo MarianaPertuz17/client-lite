@@ -18,5 +18,11 @@ export interface ILoginForm {
 }
 
 export interface IGuestService {
-  postGuest?: (guest: IGuestData) => void
+  postGuest: (guest: IGuestData) => Promise<any>,
+  postLoginGuest: (guest: ILoginUserData) => Promise<any>,
 }
+
+export interface IAdminService {
+  postLoginAdmin: (guest: ILoginUserData) => Promise<any>,
+}
+
