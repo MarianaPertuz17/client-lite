@@ -4,7 +4,7 @@ export const guestService : IGuestService = {};
 const url = 'http://localhost:5002';
 
 guestService.postGuest = (guest: IGuestData) => {
-  return fetch(`${url}/guests`, {
+  return fetch(`${url}/api/guest/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

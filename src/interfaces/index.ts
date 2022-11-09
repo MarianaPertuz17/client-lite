@@ -1,6 +1,7 @@
 export interface IGuestData {
-  email: string,
-  password: string,
+  email: string;
+  password: string;
+  passwordRepeat: string;
 }
 
 export interface IForm {

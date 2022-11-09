@@ -7,12 +7,16 @@ import {
 } from 'react-router-dom';
 import { Login } from './screens/login';
 import { SignUp } from './screens/signup';
+import { IGuestData } from './interfaces';
+import { guestService } from './services/guestService';
 
 
 function App() {
 
-  const postGuest = () => {
-
+  const postGuest = async (guest: IGuestData) => {
+    // const {res, error} = await guestService.postGuest(guest);
+    // if (!error) alert(res);
+    // else alert(res);
   }
 
   return (

@@ -14,6 +14,6 @@ code {
 
 html, body {
   --fs-400: 5rem;
-  --fs-50: 1rem;
+  --fs-50: 0.9rem;
   font-family: 'Segoe UI', sans-serif;
 }

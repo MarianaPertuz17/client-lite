@@ -21,11 +21,15 @@
 
 input {
   margin-bottom: 40px;
-  height: 5vh;
   border: none;
   border-bottom: solid gray 1.5px;
   background-color: #32363c;
   font-family: Epilogue;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 5vh;
 }
 
 .loginButton {
