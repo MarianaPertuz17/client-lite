@@ -6,19 +6,8 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 15vh;
-  background-color: #1c2026;
-  border: #32363c 1px solid;
-  border-radius: 10px;
-  min-width: none;
   width: 20vw;
-  height: 40%;
-  padding: 3em;
-  color: #4b4e53;
-  font-family: Epilogue;
+  margin-top: 3vh;
 }
 
 input {
@@ -34,11 +23,23 @@ input {
   height: 5vh;
 }
 
-.span {
-  font-size: var(--fs-50);
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15vh;
+  background-color: #1c2026;
+  border: #32363c 1px solid;
+  border-radius: 10px;
+  min-width: none;
+  width: 20vw;
+  height: 40%;
+  padding: 3em;
+  color: #4b4e53;
+  font-family: Epilogue;
 }
 
-.loginButton {
+.button {
   background-color: yellow;
   border: none;
   border-radius: 5px;
@@ -51,6 +52,6 @@ input {
   margin-top: 3vh;
 }
 
-.loginButton:hover {
+.button:hover {
   background-color: rgba(255, 255, 0, 0.82);
 }

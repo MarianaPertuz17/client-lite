@@ -1,61 +1,45 @@
 import { AltNavBar } from '../../components/altNavBar';
 import styles from './styles.module.css';
-import { yellow } from '@mui/material/colors';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
+import { ILoginUserData, ILoginForm } from '../../interfaces';
+import { RadioButtons } from '../../components/radioGroup';
 
-export function Login () {
+const initialLoginFormData : ILoginUserData = {
+  email: '',
+  password: '',
+}
 
-  const [value, setValue] = useState('guest');
+export function Login ({postLoginUser}: ILoginForm) {
 
-  const handleSubmit = (e: any) => {
+  const [ formData, setFormData ] = useState<ILoginUserData>(initialLoginFormData);
+  const [ selectedUser, setSelectedUser ] = useState('guest');
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    postLoginUser(formData, selectedUser);
+    setFormData(initialLoginFormData);
   }
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue((event.target as HTMLInputElement).value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    if (value === 'guest' || value === 'admin') setSelectedUser((e.target as HTMLInputElement).value);
+    else setFormData((prevState: ILoginUserData) => ({...prevState, [name]: value}));
   };
+
 
   return (
     <>
       <AltNavBar/>
       <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <input placeholder ='E-mail'/>
-        <input placeholder ='Password'/>
-        <RadioGroup
-          aria-labelledby="demo-controlled-radio-buttons-group"
-          name="controlled-radio-buttons-group"          
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel 
-            value="guest" 
-            control={<Radio sx={{
-              color: yellow[400],
-              '&.Mui-checked': {
-                color: yellow[400],
-              },
-            }}/>} 
-            label="Log in as guest" 
-            className={styles.span} 
-          />
-          <FormControlLabel 
-            value="admin" 
-            control={<Radio sx={{
-              color: yellow[400],
-              '&.Mui-checked': {
-                color: yellow[400],
-              },
-            }}/>} 
-            label="Log in as admin" 
-            className={styles.span} 
-          />
-        </RadioGroup>
-        <button className={styles.loginButton} type='submit'>Log in</button>
-      </form>
+        <div className={styles.formContainer}>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <input placeholder ='E-mail'/>
+            <input placeholder ='Password'/>
+            <RadioButtons selectedUser={selectedUser} handleChange={handleChange}/>
+            <button className={styles.button} type='submit'>Log in</button>
+          </form>
+
+        </div>
     </div>
     </>
     

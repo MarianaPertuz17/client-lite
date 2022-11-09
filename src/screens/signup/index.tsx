@@ -1,7 +1,7 @@
 import { AltNavBar } from '../../components/altNavBar';
 import styles from './styles.module.css';
-import { FormEvent, useEffect, useState } from 'react';
-import { IGuestData, IForm } from '../../interfaces';
+import { FormEvent, useState } from 'react';
+import { IGuestData, ISignUpForm } from '../../interfaces';
 
 const initialForm : IGuestData = {
   email: '',
@@ -9,7 +9,7 @@ const initialForm : IGuestData = {
   passwordRepeat: ''
 }
 
-export function SignUp ({postGuest}: IForm) {
+export function SignUp ({postGuest}: ISignUpForm) {
 
   const [ formData, setFormData ] = useState(initialForm);
 
@@ -38,7 +38,7 @@ export function SignUp ({postGuest}: IForm) {
             <input className={styles.input} placeholder ='Password' name='password' type='password' value={formData.password} onChange={handleChange}/>
             <input className={styles.input} placeholder ='Confirm Password' name='passwordRepeat' type='password' value={formData.passwordRepeat} onChange={handleChange}/>
             <span className={styles.span}>{matchMessage}</span>
-            <button className={styles.signUpButton} type='submit'>Sign up</button>
+            <button className={styles.button} type='submit'>Sign up</button>
           </form>
         </div>     
       </div>
