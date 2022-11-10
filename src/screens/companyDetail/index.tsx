@@ -32,19 +32,16 @@ export function Company () {
 
   return (
     <>
-      <NavBar/>
-      <div className={styles.container}>
-        {company && 
-          <>
-            <Header company={company}/>
-            <p className={styles.p}>This company has the following items:</p>
-            {company.products && <List list={company.products}/>}
-          </>
-          
-         
-        }
-      </div>
-    </>
-    
+    {company && 
+      <>
+        <NavBar/>
+        <div className={styles.container}>
+          <Header company={company}/>
+          <p className={styles.p}>This company has the following items:</p>
+          {company.products && <List list={company.products}/>}
+        </div>
+      </>
+    }
+    </>    
   )
 }

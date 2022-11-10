@@ -1,10 +1,9 @@
 import styles from './styles.module.css';
 import logo from '../../assets/images/logo_lite.png';
 import profile from '../../assets/images/profile.png';
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { routes } from '../../routes';
 import { useEffect, useState } from 'react';
-import { Dropdown } from '../dropDown';
 
 export function NavBar () {
 
@@ -35,7 +34,6 @@ export function NavBar () {
       {showProfile ? 
         <div className={styles.buttonContainer}>
           <img src={profile} alt='logo' className={styles.profile}/>
-          <Dropdown/>
           <button className={`${styles.button} ${styles.signUp}`} onClick={handleLogOut}>Log out</button>
         </div>
        :
