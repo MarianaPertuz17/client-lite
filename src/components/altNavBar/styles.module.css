@@ -11,7 +11,6 @@
 
 .firstContainer {
   height: 8vh;
-  width: 25%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,7 +18,7 @@
 
 .buttonContainer {
   display: flex;
-  min-width: 12vw;
+  gap: 3em;
   justify-content: space-between;
 }
 
@@ -33,6 +32,7 @@
   padding: 0.5em 1em;
   cursor: pointer;
   font-family: Epilogue;
+  height: 5vh;
 }
 
 .login {

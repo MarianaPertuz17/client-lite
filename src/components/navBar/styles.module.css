@@ -11,7 +11,7 @@
 
 .firstContainer {
   height: 8vh;
-  width: 25%;
+  gap: 3em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,7 +19,7 @@
 
 .buttonContainer {
   display: flex;
-  width: 12vw;
+  gap: 3em;
   justify-content: space-between;
   align-items: center;
 }
