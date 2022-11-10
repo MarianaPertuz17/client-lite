@@ -36,5 +36,16 @@ export const guestService : IGuestService = {
       .then(res => res.json())
       .then(data => data)
       .catch(e => e);
+  },
+
+  getCompany: (token: string, NIT: string): Promise<any> => {
+    return fetch(`${url}/api/guest/company/${NIT}`, {
+      headers: {
+        'Authorization' : `Bearer ${token}`
+      },
+    })
+      .then(res => res.json())
+      .then(data => data)
+      .catch(e => e);
   }
 };

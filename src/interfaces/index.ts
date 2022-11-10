@@ -21,10 +21,18 @@ export interface IGuestService {
   postGuest: (guest: IGuestData) => Promise<any>;
   postLoginGuest: (guest: ILoginUserData) => Promise<any>;
   getCompanies: (token: string) => Promise<any>;
+  getCompany: (token: string, NIT: string) => Promise<any>;
 }
 
 export interface IAdminService {
   postLoginAdmin: (guest: ILoginUserData) => Promise<any>;
+}
+
+export interface Product {
+  id: number;
+  companyId: string;
+  productName: string;
+  quantity: number;
 }
 
 export interface ICompanyAttributes {
@@ -32,4 +40,6 @@ export interface ICompanyAttributes {
   name: string;
   address: string;
   phone: string;
+  products?: Product[];
 }
+
