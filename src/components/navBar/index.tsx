@@ -30,7 +30,7 @@ export function NavBar () {
         <Link to={routes.COMPANIES} className={styles.span}>
           <span>Discover companies</span>
         </Link>
-        <Link to={routes.COMPANIES} className={styles.span}>
+        <Link to={routes.DASHBOARD} className={styles.span}>
           <span>Dashboard</span>
         </Link>
       </div>

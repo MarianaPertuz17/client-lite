@@ -1,0 +1,18 @@
+.container {
+  height: fit-content;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 3vh;
+  border-radius: 10px;
+}
+
+.container:hover {
+  background-color: #32363c;
+}
+
+.img {
+  max-height: 4vh;
+  margin-right: 2vw;
+}

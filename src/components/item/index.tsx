@@ -23,7 +23,7 @@ export function Item ({item}: Props) {
         </Link>:
         <button className={styles.container}>
           <h2>{productName}</h2>
-          <p><span className={styles.span}>quantity: </span>{quantity}</p>
+          <p><span className={styles.span}>stock: </span>{quantity}</p>
         </button>
         }
     </>
