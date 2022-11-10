@@ -25,5 +25,12 @@ export const guestService : IGuestService = {
       .then(res => res.json())
       .then(data => data)
       .catch(e => e);
+  },
+
+  getCompanies: (): Promise<any> => {
+    return fetch(`${url}/api/guest/companies`)
+      .then(res => res.json())
+      .then(data => data)
+      .catch(e => e);
   }
 };

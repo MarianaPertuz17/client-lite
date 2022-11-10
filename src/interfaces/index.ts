@@ -18,11 +18,18 @@ export interface ILoginForm {
 }
 
 export interface IGuestService {
-  postGuest: (guest: IGuestData) => Promise<any>,
-  postLoginGuest: (guest: ILoginUserData) => Promise<any>,
+  postGuest: (guest: IGuestData) => Promise<any>;
+  postLoginGuest: (guest: ILoginUserData) => Promise<any>;
+  getCompanies: () => Promise<any>;
 }
 
 export interface IAdminService {
-  postLoginAdmin: (guest: ILoginUserData) => Promise<any>,
+  postLoginAdmin: (guest: ILoginUserData) => Promise<any>;
 }
 
+export interface ICompanyAttributes {
+  NIT: string;
+  name: string;
+  address: string;
+  phone: string;
+}
