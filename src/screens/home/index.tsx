@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 export function Home () {
 
   useEffect(() => {
-    const loggedUserJSON = localStorage.getItem('bearer-token');
+    const loggedUserJSON = localStorage.getItem('token');
     
   }, []);
 

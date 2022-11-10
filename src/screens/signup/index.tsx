@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import { FormEvent, useState } from 'react';
 import { IGuestData } from '../../interfaces';
 import { guestService } from '../../services/guestService';
+import { useNavigate } from 'react-router-dom';
 
 const initialForm : IGuestData = {
   email: '',
@@ -13,13 +14,14 @@ const initialForm : IGuestData = {
 export function SignUp () {
 
   const [ formData, setFormData ] = useState(initialForm);
+  const navigate = useNavigate();
 
   const arePasswordsEqual = formData.password === formData.passwordRepeat;
   const matchMessage = arePasswordsEqual ? '' : 'Password do not match';
 
   const postGuest = async (guest: IGuestData) => {
     const {res, error} = await guestService.postGuest(guest);
-    if (!error) alert(res);
+    if (!error) navigate('/');
     else alert(res);
   }
 

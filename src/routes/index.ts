@@ -3,5 +3,6 @@ export const routes = {
   LOGIN : '/login',
   SIGNUP: '/signup',
   COMPANIES: '/companies',
+  COMPANY: '/companies/:nit',
   DASHBOARD: '/dashboard'
 };

@@ -20,7 +20,7 @@ export interface ILoginForm {
 export interface IGuestService {
   postGuest: (guest: IGuestData) => Promise<any>;
   postLoginGuest: (guest: ILoginUserData) => Promise<any>;
-  getCompanies: () => Promise<any>;
+  getCompanies: (token: string) => Promise<any>;
 }
 
 export interface IAdminService {

@@ -9,6 +9,7 @@ import { Login } from './screens/login';
 import { SignUp } from './screens/signup';
 import { Companies } from './screens/companies';
 import { Dashboard } from './screens/dashboard';
+import { Company } from './screens/companyDetail';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path={routes.LOGIN} element={<Login/>}/>
         <Route path={routes.SIGNUP} element={<SignUp/>}/>
         <Route path={routes.COMPANIES} element={<Companies/>}/>
+        <Route path={routes.COMPANY} element={<Company/>}/>
         <Route path={routes.DASHBOARD} element={<Dashboard/>}/>
       </Routes>
     </Router>

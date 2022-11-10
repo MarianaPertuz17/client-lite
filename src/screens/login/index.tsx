@@ -33,7 +33,8 @@ export function Login () {
     }
     
     if (!err) {
-      localStorage.setItem('token', JSON.stringify(response))
+      localStorage.setItem('token', response);
+      console.log('new token', localStorage.getItem('token'), response)
       navigate('/');
     } else alert(response);
   }
