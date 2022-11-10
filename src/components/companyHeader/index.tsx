@@ -1,8 +1,8 @@
-import { ICompanyAttributes } from '../../interfaces';
+import { ItemAttributes } from '../../interfaces';
 import styles from './styles.module.css';
 
 interface Props {
-  company: ICompanyAttributes;
+  company: ItemAttributes;
 }
 
 export function Header ({company}: Props) {

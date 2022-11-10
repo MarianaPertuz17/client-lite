@@ -7,7 +7,7 @@
                   url('../../assets/images/building.jpg');
   background-size: cover;
   font-family: Epilogue;
-  height: 60vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,14 +1,14 @@
 import styles from './styles.module.css';
 import { NavBar } from '../../components/navBar';
 import { useEffect, useState } from 'react';
-import { CompanyList } from '../../components/companiesList';
+import { List } from '../../components/list';
 import { guestService } from '../../services/guestService';
-import { ICompanyAttributes } from '../../interfaces';
+import { ItemAttributes } from '../../interfaces';
 
 
 export function Companies () {
 
-  const [ companies, setCompanies ] = useState<ICompanyAttributes[]>([]);
+  const [ companies, setCompanies ] = useState<ItemAttributes[]>([]);
 
   useEffect(() => {
     fetchCompanies();
@@ -29,7 +29,7 @@ export function Companies () {
       <NavBar/>
       <div className={styles.container}>
         <h2 className={styles.h2}>Currently, these companies are available:</h2>
-        <CompanyList list={companies}/>
+        <List list={companies}/>
       </div>
     </>
     

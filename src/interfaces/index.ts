@@ -35,11 +35,13 @@ export interface Product {
   quantity: number;
 }
 
-export interface ICompanyAttributes {
-  NIT: string;
-  name: string;
-  address: string;
-  phone: string;
+export interface ItemAttributes {
+  NIT?: string;
+  name?: string;
+  address?: string;
+  phone?: string;
   products?: Product[];
+  productName?: string;
+  quantity?: number;
 }
 
