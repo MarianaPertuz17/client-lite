@@ -30,6 +30,7 @@ export interface IAdminService {
   editCompany: (token: string, company: ItemAttributes) => Promise<any>;
   deleteCompany: (token: string, NIT: string) => Promise<any>;
   createItem: (token: string, item: ItemAttributes) => Promise<any>;
+  generatePDF: (token: string, NIT: string) => Promise<any>;
 }
 
 export interface Product {

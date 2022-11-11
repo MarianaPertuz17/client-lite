@@ -55,6 +55,13 @@ export function Inventory () {
     }
   }
 
+  const toPDF = async() => {
+    const loggedUserJSON = localStorage.getItem('token');
+    if (loggedUserJSON && nit){
+      const res = await adminService.generatePDF(loggedUserJSON, nit);
+    }
+  }
+
   return (
     <>
       <NavBar/>
@@ -64,9 +71,12 @@ export function Inventory () {
           <ItemForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit}/>
         </div>
         <div className={styles.container__content}>
-          <h1>Items from {company?.name}:</h1>
+          <div className={styles.titleContainer}>
+            <h1>Items from {company?.name}:</h1>
+            <button className={styles.button} onClick={toPDF}>Print to PDF</button>
+          </div>
           {company?.products && <ItemsTable items={company.products}/>}
-        </div>  
+        </div> 
       </div>
     </>
 

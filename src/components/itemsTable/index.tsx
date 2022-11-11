@@ -1,5 +1,4 @@
 import { Product } from '../../interfaces';
-import styles from './styles.module.css';
 import { useState } from 'react';
 import { grey } from '@mui/material/colors';
 import { DataGrid, GridColDef, gridClasses } from '@mui/x-data-grid';
@@ -11,8 +10,6 @@ interface Props {
 export function ItemsTable ({items}: Props) {
   
   const [pageSize, setPageSize] = useState(5);
-  const [rowId, setRowId] = useState(null);
-  console.log(items, 'las que recibo')
 
   const columns: GridColDef[] = [
     { field: 'productName', headerName: 'Name',  width: 500 },

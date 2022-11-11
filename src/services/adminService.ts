@@ -65,4 +65,20 @@ export const adminService : IAdminService = {
       .then(data => data)
       .catch(e => e);
   },
+
+  generatePDF: (token: string, NIT: string): Promise<any> => {
+    return fetch(`${url}/api/admin/pdf/${NIT}`, {
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(async res => {
+        const blob = await res.blob();
+        const file = new Blob([blob], {type: 'application/pdf'});
+        const fileURL = window.URL.createObjectURL(file);
+        window.open(fileURL);
+      })
+      .catch(e => e);
+  },
 };
