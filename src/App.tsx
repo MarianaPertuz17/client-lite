@@ -11,10 +11,21 @@ import { Companies } from './screens/companies';
 import { Dashboard } from './screens/dashboard';
 import { Company } from './screens/companyDetail';
 import { Inventory } from './screens/inventory';
+import { useEffect, useState } from 'react';
 
 
 function App() {
   
+  const [ isAdmin, setIsAdmin ] = useState(false);
+
+  useEffect(() => {
+    if (!localStorage.getItem('token')) console.log('si')
+    else {
+      if (localStorage.getItem('rol') === 'admin') setIsAdmin(true);
+      else setIsAdmin(false);
+    }
+  }, [])
+
   return (
     <Router>
       <Routes>
@@ -23,8 +34,8 @@ function App() {
         <Route path={routes.SIGNUP} element={<SignUp/>}/>
         <Route path={routes.COMPANIES} element={<Companies/>}/>
         <Route path={routes.COMPANY} element={<Company/>}/>
-        <Route path={routes.DASHBOARD} element={<Dashboard/>}/>
-        <Route path={routes.INVENTORY} element={<Inventory/>}/>
+        <Route path={routes.DASHBOARD} element={isAdmin ? <Dashboard/> : <Home/>}/>
+        <Route path={routes.INVENTORY} element={isAdmin ? <Inventory/> : <Home/>}/>
       </Routes>
     </Router>
   );

@@ -3,14 +3,8 @@ import { NavBar } from '../../components/navBar';
 import styles from './styles.module.css';
 
 export function Home () {
-
-  useEffect(() => {
-    const loggedUserJSON = localStorage.getItem('token');
-    
-  }, []);
-
   return (
-    <>
+    <div className={styles.fullPage}>
       <NavBar/>
       <div className={styles.container}>
         <div className={styles.welcomeTitle}>
@@ -18,8 +12,6 @@ export function Home () {
           <span className={styles.secondTitle}>new companies</span>
         </div>
       </div>
-    
-    </>
-    
+    </div>
   )
 }

@@ -3,7 +3,7 @@ import { NavBar } from '../../components/navBar';
 import { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { guestService } from '../../services/guestService';
 import { ItemAttributes } from '../../interfaces';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { ItemsTable } from '../../components/itemsTable';
 import { ItemForm } from '../../components/itemForm';
 import { adminService } from '../../services/adminService';
@@ -17,10 +17,16 @@ export function Inventory () {
   const [ company, setCompany ] = useState<ItemAttributes>();
   const [ formData, setFormData ] = useState(initialForm);
   const { nit } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchCompany();
+    if (!localStorage.getItem('token')) navigate('/login');
+    else {
+      if (localStorage.getItem('rol') === 'admin') fetchCompany();
+      else navigate('/');
+    }
   }, []);
+
 
   const fetchCompany = async() => {
     const loggedUserJSON = localStorage.getItem('token');
@@ -58,12 +64,12 @@ export function Inventory () {
   const toPDF = async() => {
     const loggedUserJSON = localStorage.getItem('token');
     if (loggedUserJSON && nit){
-      const res = await adminService.generatePDF(loggedUserJSON, nit);
+      await adminService.generatePDF(loggedUserJSON, nit);
     }
   }
 
   return (
-    <>
+    <div style={{height:'100vh'}}>
       <NavBar/>
       <div className={styles.container}>
         <div className={styles.optionsBar}>
@@ -78,7 +84,7 @@ export function Inventory () {
           {company?.products && <ItemsTable items={company.products}/>}
         </div> 
       </div>
-    </>
+    </div>
 
   )
 }

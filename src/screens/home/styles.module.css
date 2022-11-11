@@ -1,8 +1,13 @@
+.fullPage {
+  height: 100vh;
+}
+
 .container {
   background-color: #0d1117;
-  height: 100vh;
+  height: 88%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .welcomeTitle {
