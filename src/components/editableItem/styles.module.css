@@ -49,3 +49,13 @@ p {
   cursor: pointer;
   border: none;
 }
+
+.submitButton {
+  border: none;
+  background-color: gray;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-family: Epilogue;
+  height: 4vh;
+}

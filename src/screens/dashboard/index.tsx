@@ -24,11 +24,10 @@ export function Dashboard () {
   const [ showCompanyForm, setShowCompanyForm ] = useState(false);
   const [ formData, setFormData ] = useState(initialForm);
   const [ companies, setCompanies] = useState<ItemAttributes[]>([]);
-  const [ isEditingCompany, setIsEditingCompany ] = useState(false);
 
   useEffect(() => {
     fetchCompanies();
-  }, []);
+  }, [companies]);
 
   const fetchCompanies = async() => {
     const loggedUserJSON = localStorage.getItem('token');
@@ -48,6 +47,25 @@ export function Dashboard () {
     }
   }
 
+  const createCompany = async(company: ItemAttributes): Promise<any> => {
+    const loggedUserJSON = localStorage.getItem('token');
+    if (loggedUserJSON){
+      const {res, error} = await adminService.createCompany(loggedUserJSON, company);
+      if (!error){
+        alert('Company added!')
+        setFormData(initialForm);
+      } else alert(res);
+    }
+  }
+
+  const editCompany = async(company: ItemAttributes): Promise<any> => {
+    const loggedUserJSON = localStorage.getItem('token');
+    if (loggedUserJSON){
+      const {res, error} = await adminService.editCompany(loggedUserJSON, company);
+      if (!error) alert('Company edited!') 
+      else alert(res);
+    }
+  }
 
   const handleClick = (option: string) => {
     if (option === 'Explore companies') setShowCompanyForm(false);
@@ -56,8 +74,10 @@ export function Dashboard () {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setFormData(initialForm);
+    createCompany(formData);
   }
+
+  
 
   const handleChange = ( e: ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
@@ -65,7 +85,7 @@ export function Dashboard () {
   }
 
   return (
-    <>
+    <AppContext.Provider value={{deleteCompany, createCompany, editCompany}}>
       <NavBar/>
       <div className={styles.container}>
         <div className={styles.optionsBar}>
@@ -77,21 +97,17 @@ export function Dashboard () {
           { !showCompanyForm ? 
             <>
               <h1>Current companies</h1>
-              <AppContext.Provider value={{deleteCompany}}>
                 <List list={companies} isAdmin={true}/>
-              </AppContext.Provider>
             </>
             :
             <>
               <h1>Add new company</h1>
               <CompanyForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
-            </>
-            
+            </> 
           }
-        </div>
-        
+        </div>  
       </div>
-    </>
+    </AppContext.Provider>
     
   )
 }
