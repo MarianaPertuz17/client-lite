@@ -30,7 +30,7 @@ export function Companies () {
     <>
       <NavBar/>
       <div className={styles.container}>
-        <h2 className={styles.h2}>Currently, these companies are available:</h2>
+        <h3 className={styles.h3}>Currently, these companies are available:</h3>
         <List list={companies}/>
       </div>
     </>

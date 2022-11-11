@@ -15,6 +15,7 @@
   color: white;
   padding: 1em 2.5em;
   margin: 2.5em 0;
+  margin-right: 3em;
   border: solid rgb(97, 97, 97) 1.5px;
   border-radius: 10px;
   background-color: #32363c;
@@ -27,7 +28,7 @@
 }
 
 p {
-  font-size: 15px;
+  font-size: var(--fs-50);
 }
 
 .span {
@@ -37,11 +38,11 @@ p {
 .iconContainer {
   display: flex;
   justify-content: space-between;
-  width: 20%;
+  min-width: 20%;
 }
 
 .img {
-  height: 6vh;
+  max-height: 6vh;
 }
 
 .button {

@@ -53,7 +53,6 @@ export function EditableItem ({item, isAdmin}: Props) {
           <button className={styles.submitButton} type='submit'>Save</button>
         </form>
       }
-      { isAdmin && 
       <div className={styles.iconContainer}>
         <button className={styles.button} onClick={() => setIsEditingCompany(!isEditingCompany)}>
           <img className={styles.img} alt='edit' src={edit}/>
@@ -67,7 +66,6 @@ export function EditableItem ({item, isAdmin}: Props) {
           </button>
         </Link> 
       </div>
-      }
     </button>
   )
 }

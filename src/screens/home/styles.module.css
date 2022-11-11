@@ -12,7 +12,7 @@
 
 .welcomeTitle {
   font-family: Epilogue, 'sans serif';
-  font-size: var(--fs-400);
+  font-size: var(--fs-400) !important;
   font-weight: bold;
   max-width: 65vw;
   text-align: center;

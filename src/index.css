@@ -14,10 +14,54 @@ code {
 
 html, body {
   --fs-400: 5rem;
+  --fs-200: 3rem;
+  --fs-100: 2rem;
+  --fs-60: 1rem;
   --fs-50: 0.9rem;
   font-family: 'Segoe UI', sans-serif;
 }
 
-button {
+span, h3 {
+  font-size: var(--fs-60);
+}
+
+h1 {
+  font-size: var(--fs-100);
+}
+
+@media (min-width: 1700px) {
+  body {
+  --fs-400: 6.5rem;
+  --fs-200: 4rem;
+  --fs-100: 2.5rem;
+  --fs-60: 1.2rem;
+  --fs-50: 1.1rem;
+  }
+}
+
+@media (min-width:2000px) {
+  body {
+    --fs-400: 7rem;
+    --fs-200: 4.5rem;
+    --fs-100: 3.5rem;
+    --fs-60: 1.9rem;
+    --fs-50: 1.8rem;
+  }
+  
+}
+
+@media (min-width:2400px) {
+  body {
+    --fs-400: 7rem;
+    --fs-200: 5rem;
+    --fs-100: 4rem;
+    --fs-60: 1.5rem;
+    --fs-50: 1.4rem;
+  }
+  
+}
+
+button, input {
   font-family: Epilogue;
+  font-size: var(--fs-50);
 }

@@ -8,8 +8,8 @@ export function Home () {
       <NavBar/>
       <div className={styles.container}>
         <div className={styles.welcomeTitle}>
-          <span className={styles.firstTitle}>Get ready to discover</span>
-          <span className={styles.secondTitle}>new companies</span>
+          <div className={styles.firstTitle}>Get ready to discover</div>
+          <div className={styles.secondTitle}>new companies</div>
         </div>
       </div>
     </div>
