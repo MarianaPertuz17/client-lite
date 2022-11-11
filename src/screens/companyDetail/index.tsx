@@ -37,7 +37,10 @@ export function Company () {
         <NavBar/>
         <div className={styles.container}>
           <Header company={company}/>
-          <p className={styles.p}>This company has the following items:</p>
+          { company.products && company.products.length > 0 ? 
+            <p className={styles.p}>This company has the following items:</p>
+          : <p className={styles.p}>This company has no items yet</p>}
+          
           {company.products && <List list={company.products}/>}
         </div>
       </>
