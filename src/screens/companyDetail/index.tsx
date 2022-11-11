@@ -23,10 +23,8 @@ export function Company () {
     const loggedUserJSON = localStorage.getItem('token');
     if (loggedUserJSON && nit){
       const {res, error} = await guestService.getCompany(loggedUserJSON, nit);
-      if (!error) {
-        console.log(res, 'tyin')
-        setCompany(res);
-      } else alert(res);
+      if (!error) setCompany(res);
+      else alert(res);
     }
   }
 

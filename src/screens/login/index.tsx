@@ -35,7 +35,6 @@ export function Login () {
     if (!err) {
       localStorage.setItem('token', response);
       localStorage.setItem('rol', user);
-      console.log('new token', localStorage.getItem('token'), response)
       navigate('/');
     } else alert(response);
   }
