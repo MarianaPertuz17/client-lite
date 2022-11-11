@@ -4,14 +4,17 @@ import { useEffect, useState } from 'react';
 import { List } from '../../components/list';
 import { guestService } from '../../services/guestService';
 import { ItemAttributes } from '../../interfaces';
+import { useNavigate } from 'react-router-dom';
 
 
 export function Companies () {
 
   const [ companies, setCompanies ] = useState<ItemAttributes[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchCompanies();
+    if (!localStorage.getItem('token')) navigate('/login');
+    else fetchCompanies(); 
   }, []);
 
   const fetchCompanies = async() => {

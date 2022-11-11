@@ -8,17 +8,19 @@ import { useEffect, useState } from 'react';
 export function NavBar () {
 
   const navigate = useNavigate();
-  const [ showProfile, setShowProfile ] = useState(false);
-  
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  const [ isAdmin, setIsAdmin ] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem('token')) setShowProfile(true);
+    if (localStorage.getItem('token')) setIsLoggedIn(true);
+    if (localStorage.getItem('rol') === 'admin') setIsAdmin(true);
+    else setIsAdmin(false);
   }, []);
 
   const handleLogOut = () => {
     localStorage.clear();
     navigate('/');
-    setShowProfile(false);
+    setIsLoggedIn(false);
   }
   
   return (
@@ -27,14 +29,18 @@ export function NavBar () {
         <Link to={routes.HOME}>
           <img src={logo} alt='logo' className={styles.logo}/>
         </Link>
-        <Link to={routes.COMPANIES} className={styles.span}>
-          <span>Discover companies</span>
-        </Link>
-        <Link to={routes.DASHBOARD} className={styles.span}>
-          <span>Dashboard</span>
-        </Link>
+        { isLoggedIn && 
+          <Link to={routes.COMPANIES} className={styles.span}>
+            <span>Discover companies</span>
+          </Link>
+        }
+        { (isAdmin && isLoggedIn) && 
+          <Link to={routes.DASHBOARD} className={styles.span}>
+            <span>Dashboard</span>
+          </Link>
+        }
       </div>
-      {showProfile ? 
+      {isLoggedIn ? 
         <div className={styles.buttonContainer}>
           <img src={profile} alt='logo' className={styles.profile}/>
           <button className={`${styles.button} ${styles.signUp}`} onClick={handleLogOut}>Log out</button>

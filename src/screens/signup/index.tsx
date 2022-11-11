@@ -1,9 +1,9 @@
-import { AltNavBar } from '../../components/altNavBar';
 import styles from './styles.module.css';
 import { FormEvent, useState } from 'react';
 import { IGuestData } from '../../interfaces';
 import { guestService } from '../../services/guestService';
 import { useNavigate } from 'react-router-dom';
+import { NavBar } from '../../components/navBar';
 
 const initialForm : IGuestData = {
   email: '',
@@ -38,7 +38,7 @@ export function SignUp () {
 
   return (
     <>
-      <AltNavBar/>
+      <NavBar/>
       <div className={styles.container}>
         <div className={styles.formContainer}>
           <span className={styles.span}>Fill in the form to register as a guest user</span>

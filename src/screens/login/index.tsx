@@ -1,4 +1,3 @@
-import { AltNavBar } from '../../components/altNavBar';
 import styles from './styles.module.css';
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { ILoginUserData } from '../../interfaces';
@@ -6,6 +5,7 @@ import { RadioButtons } from '../../components/radioGroup';
 import { guestService } from '../../services/guestService';
 import { adminService } from '../../services/adminService';
 import { useNavigate } from "react-router-dom";
+import { NavBar } from '../../components/navBar';
 
 const initialLoginFormData : ILoginUserData = {
   email: '',
@@ -55,7 +55,7 @@ export function Login () {
 
   return (
     <>
-      <AltNavBar/>
+      <NavBar/>
       <div className={styles.container}>
         <div className={styles.formContainer}>
           <form className={styles.form} onSubmit={handleSubmit}>

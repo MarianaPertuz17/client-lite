@@ -4,21 +4,21 @@ import { useEffect, useState } from 'react';
 import { List } from '../../components/list';
 import { guestService } from '../../services/guestService';
 import { ItemAttributes } from '../../interfaces';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Header } from '../../components/companyHeader';
 
 
 export function Company () {
 
   const [ company, setCompany ] = useState<ItemAttributes>();
-  const { nit } = useParams()
+  const { nit } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchCompany();
-    console.log(company)
+    if (!localStorage.getItem('token')) navigate('/login');
+    else fetchCompany();
   }, []);
 
- 
   const fetchCompany = async() => {
     const loggedUserJSON = localStorage.getItem('token');
     if (loggedUserJSON && nit){
