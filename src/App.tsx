@@ -10,6 +10,7 @@ import { SignUp } from './screens/signup';
 import { Companies } from './screens/companies';
 import { Dashboard } from './screens/dashboard';
 import { Company } from './screens/companyDetail';
+import { Inventory } from './screens/inventory';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path={routes.COMPANIES} element={<Companies/>}/>
         <Route path={routes.COMPANY} element={<Company/>}/>
         <Route path={routes.DASHBOARD} element={<Dashboard/>}/>
+        <Route path={routes.INVENTORY} element={<Inventory/>}/>
       </Routes>
     </Router>
   );

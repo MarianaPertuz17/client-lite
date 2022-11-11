@@ -7,6 +7,8 @@ import { useContext, useState } from 'react';
 import { AppContext } from '../../context';
 import { ChangeEvent } from 'react';
 import { FormEvent } from 'react';
+import { Link } from 'react-router-dom';
+
 
 interface Props {
   item: ItemAttributes;
@@ -47,7 +49,7 @@ export function EditableItem ({item, isAdmin}: Props) {
           <input className={styles.input} placeholder={name} name='name' value={formData.name} onChange={(e) => handleChange(e)}/>
           <p><span className={styles.span}>Address: </span><input className={styles.input} placeholder ={address} name='address' value={formData.address} onChange={(e) => handleChange(e)}/></p>
           <p><span className={styles.span}>Phone: </span><input className={styles.input} placeholder ='Phone' name='phone' type='text' value={formData.phone} onChange={(e) => handleChange(e)}/></p>
-          <p><span className={styles.span}>NIT: </span><input className={styles.input} placeholder ='NIT' name='NIT' type='text' value={formData.NIT} onChange={(e) => handleChange(e)}/></p>
+          <p><span className={styles.span}>NIT: </span><input disabled className={styles.input} placeholder ='NIT' name='NIT' type='text' value={formData.NIT} onChange={(e) => handleChange(e)}/></p>
           <button className={styles.submitButton} type='submit'>Save</button>
         </form>
       }
@@ -59,9 +61,11 @@ export function EditableItem ({item, isAdmin}: Props) {
         <button className={styles.button} onClick={()=> deleteCompany(NIT)}>
           <img className={styles.img} alt='delete' src={deleteIcon}/>
         </button>
-        <button className={styles.button}>
-          <img className={styles.img} alt='see' src={eye}/>
-        </button>
+        <Link to={`inventory/${NIT}`} style={{textDecoration: 'none'}}>
+          <button className={styles.button}>
+            <img className={styles.img} alt='see' src={eye}/>
+          </button>
+        </Link> 
       </div>
       }
     </button>

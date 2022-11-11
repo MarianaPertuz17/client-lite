@@ -62,7 +62,10 @@ export function Dashboard () {
     const loggedUserJSON = localStorage.getItem('token');
     if (loggedUserJSON){
       const {res, error} = await adminService.editCompany(loggedUserJSON, company);
-      if (!error) alert('Company edited!') 
+      if (!error) {
+        fetchCompanies();
+        alert('Company edited!');
+      }
       else alert(res);
     }
   }
