@@ -33,7 +33,7 @@ export function Dashboard () {
       if (localStorage.getItem('rol') === 'admin') fetchCompanies();
       else navigate('/');
     }
-  }, [companies]);
+  }, []);
 
 
   const fetchCompanies = async() => {

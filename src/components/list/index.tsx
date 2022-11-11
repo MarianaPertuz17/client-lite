@@ -12,7 +12,7 @@ interface ListProps {
 export function List ({list, isAdmin}: ListProps) {
   return (
     <div className={styles.container}>
-      {list.map((item, index) => <>{!isAdmin ? <Item item={item}/> : <EditableItem  item={item} isAdmin={isAdmin}/>}</>)}
+      {list.map((item, index) => <>{!isAdmin ? <Item key={item.NIT} item={item}/> : <EditableItem key={item.NIT}  item={item} isAdmin={isAdmin}/>}</>)}
     </div>
   )
 }
