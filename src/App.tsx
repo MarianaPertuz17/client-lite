@@ -13,6 +13,7 @@ import { Company } from './screens/companyDetail';
 
 
 function App() {
+  
   return (
     <Router>
       <Routes>

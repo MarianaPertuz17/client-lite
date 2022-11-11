@@ -46,8 +46,8 @@ export function Login () {
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target as HTMLInputElement;
-    if (value === 'guest' || value === 'admin') setSelectedUser(value);
+    const { value, name, type } = e.target as HTMLInputElement;
+    if (type === 'radio') setSelectedUser(value);
     else setFormData((prevState: ILoginUserData) => ({...prevState, [name]: value}));
   };
 
@@ -58,7 +58,7 @@ export function Login () {
       <div className={styles.container}>
         <div className={styles.formContainer}>
           <form className={styles.form} onSubmit={handleSubmit}>
-            <input placeholder ='E-mail' name='email' value={formData.email} onChange={handleChange}/>
+            <input placeholder ='E-mail' name='email' type='text' value={formData.email} onChange={handleChange}/>
             <input placeholder ='Password' name='password' type='password' value={formData.password} onChange={handleChange}/>
             <RadioButtons selectedUser={selectedUser} handleChange={handleChange}/>
             <button className={styles.button} type='submit'>Log in</button>
