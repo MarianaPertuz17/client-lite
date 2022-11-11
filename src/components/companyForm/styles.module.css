@@ -1,0 +1,23 @@
+.container {
+  margin-top: 1em;
+  max-width: 50vw;
+}
+
+.title {
+  color: gray
+}
+
+label {
+  font-size: var(--fs-50);
+}
+
+.input {
+  background-color: rgb(234, 234, 234);
+  margin-top: 0.3em;
+}
+
+.button {
+  background-color: yellow;
+  border: none;
+  border-radius: 10px;
+}

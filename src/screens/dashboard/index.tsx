@@ -3,16 +3,36 @@ import { NavBar } from '../../components/navBar';
 import { DashboardItem } from '../../components/dashboardItem';
 import companyIcon from '../../assets/images/company-icon.png';
 import plusIcon from '../../assets/images/plus-icon.png';
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
+import { ItemAttributes } from '../../interfaces';
+import { CompanyForm } from '../../components/companyForm';
 
+const initialForm : ItemAttributes = {
+  NIT: '',
+  name: '',
+  address: '',
+  phone: '',
+}
 
 export function Dashboard () {
 
   const [ showCompanyForm, setShowCompanyForm ] = useState(false);
+  const [ formData, setFormData ] = useState(initialForm);
 
   const handleClick = (option: string) => {
     if (option === 'Explore companies') setShowCompanyForm(false);
     else setShowCompanyForm(true);
+  }
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setFormData(initialForm);
+  }
+
+  const handleChange = ( e: ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    setFormData(prevState => ({...prevState, [name]: value}));
+    console.log(formData, 'la data')
   }
 
   return (
@@ -24,11 +44,16 @@ export function Dashboard () {
           <DashboardItem icon={companyIcon} title='Explore companies' handleClick={handleClick}/>
           <DashboardItem icon={plusIcon} title='Add new company' handleClick={handleClick}/>
         </div>
-        <div>
+        <div className={styles.container__content}>
           { !showCompanyForm ? 
             <h2 className={styles.h2}>Currently, these companies are available:</h2>
             :
-            <h2 className={styles.h2}>Showing form</h2>
+            <>
+              <h1>Add new company</h1>
+              <CompanyForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
+
+            </>
+            
           }
         </div>
         

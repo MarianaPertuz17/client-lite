@@ -2,6 +2,7 @@ import { ItemAttributes } from '../../interfaces';
 import { Item } from '../item';
 import styles from './styles.module.css';
 
+
 interface ListProps {
   list: ItemAttributes[];
 }
