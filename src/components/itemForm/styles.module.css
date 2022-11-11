@@ -3,12 +3,9 @@
   max-width: 50vw;
 }
 
-.title {
-  color: gray
-}
-
 label {
   font-size: var(--fs-50);
+  color: gray;
 }
 
 .input {
@@ -21,17 +18,12 @@ label {
   background-color: yellow;
   border: none;
   border-radius: 10px;
-  padding: 0.8em;
+  width: 100%;
+  height: 5vh;
   margin-top: 2vh;
   cursor: pointer;
-  align-self: flex-end;
 }
 
 .button:hover {
   background-color: rgb(228, 228, 3);
-}
-
-.buttonContainer {
-  display: flex;
-  flex-direction: column;
 }

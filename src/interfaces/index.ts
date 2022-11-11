@@ -29,6 +29,7 @@ export interface IAdminService {
   createCompany: (token: string, company: ItemAttributes) => Promise<any>;
   editCompany: (token: string, company: ItemAttributes) => Promise<any>;
   deleteCompany: (token: string, NIT: string) => Promise<any>;
+  createItem: (token: string, item: ItemAttributes) => Promise<any>;
 }
 
 export interface Product {
@@ -46,5 +47,6 @@ export interface ItemAttributes {
   products?: Product[];
   productName?: string;
   quantity?: number;
+  companyId?: string;
 }
 

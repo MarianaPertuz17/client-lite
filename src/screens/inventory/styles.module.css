@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  height: 100vh;
+  font-family: Epilogue;
+}
+
+.optionsBar {
+  background-color: #0d1117;
+  width: 20%;
+  color: white;
+  padding: 2em 2em 5em 5em;
+}
+
+.container__content {
+  display: flex;
+  flex-direction: column;
+  padding: 3em 5em;
+  width: 80%;
+}

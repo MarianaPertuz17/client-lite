@@ -8,14 +8,14 @@ interface Props {
   handleSubmit: (e: FormEvent) => any;
 }
 
-
 export function ItemForm ({formData, handleChange, handleSubmit}: Props) {
-
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <input className={styles.input} required placeholder ='Item name' name='name' value={formData.productName} onChange={(e) => handleChange(e)}/>
+          <label>Item name:</label>
+          <input className={styles.input} required placeholder ='Item name' name='productName' value={formData.productName} onChange={(e) => handleChange(e)}/>
+          <label>Quantity:</label>
           <input className={styles.input} required placeholder ='Quantity' name='quantity' type='text' value={formData.quantity} onChange={(e) => handleChange(e)}/>
         </div>
         <button className={styles.button} type='submit'>Add item</button>

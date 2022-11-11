@@ -28,7 +28,9 @@ export function CompanyForm ({formData, handleChange, handleSubmit}: Props) {
           <label>Address:</label>
           <input className={styles.input} required placeholder ='Address' name='address' type='text' value={formData.address} onChange={(e) => handleChange(e)}/>
         </div>
-        <button className={styles.button} type='submit'>Add company</button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} type='submit'>Add company</button>
+        </div>
       </form>
     </div>
   )

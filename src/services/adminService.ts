@@ -52,4 +52,17 @@ export const adminService : IAdminService = {
     .then(data => data)
     .catch(e => e);
   },
+
+  createItem: (token: string, item: ItemAttributes): Promise<any> => {
+    return fetch(`${url}/api/admin/product`, {
+      method: 'POST',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(item)})
+      .then(res => res.json())
+      .then(data => data)
+      .catch(e => e);
+  },
 };
