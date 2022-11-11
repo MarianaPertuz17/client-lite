@@ -3,9 +3,12 @@ import { NavBar } from '../../components/navBar';
 import { DashboardItem } from '../../components/dashboardItem';
 import companyIcon from '../../assets/images/company-icon.png';
 import plusIcon from '../../assets/images/plus-icon.png';
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import { ItemAttributes } from '../../interfaces';
 import { CompanyForm } from '../../components/companyForm';
+import { guestService } from '../../services/guestService';
+import { List } from '../../components/list';
+
 
 const initialForm : ItemAttributes = {
   NIT: '',
@@ -18,6 +21,22 @@ export function Dashboard () {
 
   const [ showCompanyForm, setShowCompanyForm ] = useState(false);
   const [ formData, setFormData ] = useState(initialForm);
+  const [ companies, setCompanies] = useState<ItemAttributes[]>([]);
+
+  useEffect(() => {
+    fetchCompanies();
+    console.log(companies)
+  }, []);
+
+  const fetchCompanies = async() => {
+    const loggedUserJSON = localStorage.getItem('token');
+    if (loggedUserJSON){
+      const {res, error} = await guestService.getCompanies(loggedUserJSON);
+      if (!error) setCompanies(res);
+      else alert(res);
+    }
+  }
+
 
   const handleClick = (option: string) => {
     if (option === 'Explore companies') setShowCompanyForm(false);
@@ -46,12 +65,14 @@ export function Dashboard () {
         </div>
         <div className={styles.container__content}>
           { !showCompanyForm ? 
-            <h2 className={styles.h2}>Currently, these companies are available:</h2>
+            <>
+              <h1>Current companies</h1>
+              <List list={companies} isAdmin={true}/>
+            </>
             :
             <>
               <h1>Add new company</h1>
               <CompanyForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
-
             </>
             
           }

@@ -12,7 +12,6 @@ export function Companies () {
 
   useEffect(() => {
     fetchCompanies();
-    console.log(companies)
   }, []);
 
   const fetchCompanies = async() => {
