@@ -13,5 +13,17 @@ export const adminService : IAdminService = {
       .then(res => res.json())
       .then(data => data)
       .catch(e => e);
-  }
+  },
+
+  deleteCompany: (token: string, NIT: string): Promise<any> => {
+    return fetch(`${url}/api/admin/company/${NIT}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization' : `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => data)
+    .catch(e => e);
+  },
 };

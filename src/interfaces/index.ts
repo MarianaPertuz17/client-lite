@@ -26,6 +26,7 @@ export interface IGuestService {
 
 export interface IAdminService {
   postLoginAdmin: (guest: ILoginUserData) => Promise<any>;
+  deleteCompany: (token: string, NIT: string) => Promise<any>;
 }
 
 export interface Product {

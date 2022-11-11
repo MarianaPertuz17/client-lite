@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
 import { ItemAttributes } from '../../interfaces';
 import styles from './styles.module.css';
 import edit from '../../assets/images/edit.png';
 import deleteIcon from '../../assets/images/trash.png'
+import eye from '../../assets/images/eye.png';
+import { useContext } from 'react';
+import { AppContext } from '../../context';
 
 interface Props {
   item: ItemAttributes;
@@ -12,6 +14,7 @@ interface Props {
 export function EditableItem ({item, isAdmin}: Props) {
   
   const { name, address, phone, NIT } = item;
+  const { deleteCompany } = useContext(AppContext);
 
   return (
     <button className={styles.container__withIcons}>
@@ -23,8 +26,15 @@ export function EditableItem ({item, isAdmin}: Props) {
       </div>
       { isAdmin && 
       <div className={styles.iconContainer}>
-        <img className={styles.img} alt='edit' src={edit}/>
-        <img className={styles.img} alt='delete' src={deleteIcon}/>
+        <button className={styles.button}>
+          <img className={styles.img} alt='edit' src={edit}/>
+        </button>
+        <button className={styles.button} onClick={()=> deleteCompany(NIT)}>
+          <img className={styles.img} alt='delete' src={deleteIcon}/>
+        </button>
+        <button className={styles.button}>
+          <img className={styles.img} alt='see' src={eye}/>
+        </button>
       </div>
       }
     </button>

@@ -11,35 +11,10 @@
   text-align: left;
 }
 
-.container__withIcons {
-  color: white;
-  padding: 1em 2.5em;
-  margin: 2.5em 0;
-  border: solid rgb(97, 97, 97) 1.5px;
-  border-radius: 10px;
-  background-color: #32363c;
-  font-family: Epilogue;
-  width: 100%;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 p {
   font-size: 15px;
 }
 
 .span {
   font-weight: bold;
-}
-
-.iconContainer {
-  display: flex;
-  justify-content: space-between;
-  width: 8vw;
-}
-
-.img {
-  height: 6vh;
 }

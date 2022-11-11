@@ -17,19 +17,11 @@ export function Item ({item, isAdmin}: Props) {
     <>
       {item.NIT ? 
         <Link to={`${NIT}`} style={{textDecoration: 'none'}}>
-          <button className={styles.container__withIcons}>
-            <div>
-              <h2>{name}</h2>
-              <p><span className={styles.span}>Address: </span>{address}</p>
-              <p><span className={styles.span}>Phone: </span>{phone}</p>
-              <p><span className={styles.span}>NIT: </span>{NIT}</p>
-            </div>
-            { isAdmin && 
-            <div className={styles.iconContainer}>
-              <img className={styles.img} alt='edit' src={edit}/>
-              <img className={styles.img} alt='delete' src={deleteIcon}/>
-            </div>
-            }
+          <button className={styles.container}>
+            <h2>{name}</h2>
+            <p><span className={styles.span}>Address: </span>{address}</p>
+            <p><span className={styles.span}>Phone: </span>{phone}</p>
+            <p><span className={styles.span}>NIT: </span>{NIT}</p>
           </button>
         </Link>:
         <button className={styles.container}>

@@ -37,9 +37,15 @@ p {
 .iconContainer {
   display: flex;
   justify-content: space-between;
-  width: 8vw;
+  width: 20%;
 }
 
 .img {
   height: 6vh;
+}
+
+.button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
 }

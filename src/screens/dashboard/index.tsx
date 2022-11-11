@@ -8,6 +8,8 @@ import { ItemAttributes } from '../../interfaces';
 import { CompanyForm } from '../../components/companyForm';
 import { guestService } from '../../services/guestService';
 import { List } from '../../components/list';
+import { adminService } from '../../services/adminService';
+import { AppContext } from '../../context';
 
 
 const initialForm : ItemAttributes = {
@@ -22,10 +24,10 @@ export function Dashboard () {
   const [ showCompanyForm, setShowCompanyForm ] = useState(false);
   const [ formData, setFormData ] = useState(initialForm);
   const [ companies, setCompanies] = useState<ItemAttributes[]>([]);
+  const [ isEditingCompany, setIsEditingCompany ] = useState(false);
 
   useEffect(() => {
     fetchCompanies();
-    console.log(companies)
   }, []);
 
   const fetchCompanies = async() => {
@@ -33,6 +35,15 @@ export function Dashboard () {
     if (loggedUserJSON){
       const {res, error} = await guestService.getCompanies(loggedUserJSON);
       if (!error) setCompanies(res);
+      else alert(res);
+    }
+  }
+  
+  const deleteCompany = async(NIT: string) => {
+    const loggedUserJSON = localStorage.getItem('token');
+    if (loggedUserJSON){
+      const {res, error} = await adminService.deleteCompany(loggedUserJSON, NIT);
+      if (!error) fetchCompanies();   
       else alert(res);
     }
   }
@@ -51,7 +62,6 @@ export function Dashboard () {
   const handleChange = ( e: ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     setFormData(prevState => ({...prevState, [name]: value}));
-    console.log(formData, 'la data')
   }
 
   return (
@@ -67,7 +77,9 @@ export function Dashboard () {
           { !showCompanyForm ? 
             <>
               <h1>Current companies</h1>
-              <List list={companies} isAdmin={true}/>
+              <AppContext.Provider value={{deleteCompany}}>
+                <List list={companies} isAdmin={true}/>
+              </AppContext.Provider>
             </>
             :
             <>
